@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10244d">
+  <meta name="description" content="Discover elegant jewellery, cosmetics, handbags and perfumes at Tavi's. Elevate your style. Express your elegance.">
+  <title>Tavi's | Jewelleries & Accessories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">A little luxury for every moment <span>✦</span> Shop Tavi's collection</div>
+  <header class="site-header">
+    <a class="brand" href="#"><span class="brand-mark">T</span><span><b>Tavi's</b><small>JEWELLERIES & ACCESSORIES</small></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#home">Home</a><a href="#categories">Categories</a><a href="#new-arrivals">New arrivals</a><a href="#about">Our story</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="searchToggle" aria-label="Search">⌕</button>
+      <button class="cart-button" id="openCart">Bag <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">THE ART OF EVERYDAY LUXURY</p>
+        <h1>Elevate your style.<br><em>Express your elegance.</em></h1>
+        <p>Discover handpicked treasures that add beauty, confidence and luxury to every moment.</p>
+        <div class="hero-actions"><a class="button button-gold" href="#categories">Explore collection</a><a class="text-link" href="#about">Discover Tavi's <span>→</span></a></div>
+        <div class="hero-note"><span>✦</span> Thoughtfully selected. Beautifully yours.</div>
+      </div>
+      <div class="hero-art" aria-label="Luxury accessories inspired by the Tavi's collection">
+        <div class="hero-orbit"></div><div class="hero-gem">✧</div><div class="hero-leaf">❧</div>
+        <div class="hero-card"><span>THE TAVI'S EDIT</span><strong>Beauty in<br>every detail.</strong><small>JEWELLERIES · BEAUTY · STYLE</small></div>
+        <div class="floating-tag">A touch<br>of gold <b>✦</b></div>
+      </div>
+    </section>
+
+    <section class="trust-strip"><div><b>✧</b> Curated collections</div><div><b>◇</b> Style for every occasion</div><div><b>♡</b> Personal customer care</div><div><b>✦</b> Easy WhatsApp ordering</div></section>
+
+    <section class="section" id="categories">
+      <div class="section-heading"><div><p class="eyebrow">FIND YOUR FAVOURITE</p><h2>Shop by category</h2></div><p>Pieces that make every look feel complete.</p></div>
+      <div class="category-grid" id="categoryGrid">
+        <button class="category-tile active" data-category="All"><span class="category-symbol">✧</span><b>All products</b><small>Explore everything</small></button>
+        <button class="category-tile" data-category="Jewelry"><span class="category-symbol">◇</span><b>Jewelry</b><small>Timeless sparkle</small></button>
+        <button class="category-tile" data-category="Cosmetics"><span class="category-symbol">✿</span><b>Cosmetics</b><small>Beauty essentials</small></button>
+        <button class="category-tile" data-category="Handbags"><span class="category-symbol">▱</span><b>Handbags</b><small>Carry elegance</small></button>
+        <button class="category-tile" data-category="Perfumes"><span class="category-symbol">♧</span><b>Perfumes</b><small>Signature scents</small></button>
+      </div>
+    </section>
+
+    <section class="section products-section" id="shop">
+      <div class="section-heading"><div><p class="eyebrow">THE COLLECTION</p><h2 id="productsTitle">Explore our treasures</h2></div><div class="filter-tools"><input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products"><select id="sortSelect" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="new">Newest first</option></select></div></div>
+      <div class="product-grid" id="productGrid"><div class="loading">Loading the collection…</div></div>
+      <p class="empty-state hidden" id="emptyProducts">No products found. Please try another search.</p>
+    </section>
+
+    <section class="story-section" id="new-arrivals">
+      <div class="section-heading"><div><p class="eyebrow">FRESH FROM TAVI'S</p><h2>Stories & new arrivals</h2></div><p>Discover the latest additions, offers and style inspiration.</p></div>
+      <div class="story-grid" id="storyGrid"><div class="loading">Loading stories…</div></div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-seal">T<br><small>EST.</small></div>
+      <div><p class="eyebrow">A LITTLE ABOUT US</p><h2>Elegance is in<br><em>the details.</em></h2><p id="aboutText">At Tavi's, we believe the right detail can transform how you feel. We bring together thoughtfully selected jewellery, cosmetics, handbags and perfumes to help you express your own style with confidence.</p><a class="text-link" href="#contact">Get to know us <span>→</span></a></div>
+      <div class="about-quote">“Your style is your story.<br>Make every detail count.”<span>— Tavi's</span></div>
+    </section>
+
+    <section class="newsletter-section"><div><p class="eyebrow">STAY IN THE KNOW</p><h2>First to discover.<br><em>First to adore.</em></h2><p>Follow our updates for new arrivals, special offers and style inspiration.</p></div><a class="button button-light" id="newsletterWhatsApp" href="#" target="_blank" rel="noopener">Get updates on WhatsApp ↗</a></section>
+
+    <section class="contact-section" id="contact">
+      <div><p class="eyebrow">WE'D LOVE TO HEAR FROM YOU</p><h2>Let's make it<br><em>personal.</em></h2><p>Questions about a product, an order or a gift? Send us a message and our team will be happy to assist.</p></div>
+      <div class="contact-card"><div><small>WHATSAPP</small><b id="contactPhone">Add your WhatsApp number</b></div><div><small>EMAIL</small><b id="contactEmail">Add your business email</b></div><div><small>LOCATION</small><b id="contactLocation">Add your business location</b></div><a class="button button-gold" id="contactWhatsApp" href="#" target="_blank" rel="noopener">Chat with us on WhatsApp ↗</a></div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand brand-footer" href="#"><span class="brand-mark">T</span><span><b>Tavi's</b><small>JEWELLERIES & ACCESSORIES</small></span></a><p>Elevate your style. Express your elegance.</p><div>© <span id="year"></span> Tavi's. All rights reserved.</div><a href="admin.html" class="admin-link">Store management</a></footer>
+
+  <a class="whatsapp-float" id="floatingWhatsApp" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">◔</a>
+
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head"><div><p class="eyebrow">YOUR SELECTION</p><h3>Shopping bag <span id="drawerCount">(0)</span></h3></div><button id="closeCart" class="close-button" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cartItems"><p class="cart-empty">Your bag is waiting for something beautiful.</p></div>
+    <div class="cart-footer"><div class="cart-total"><span>Subtotal</span><b id="cartTotal">UGX 0</b></div><p>Delivery details and final confirmation will be arranged on WhatsApp.</p><button class="button button-gold full-button" id="checkoutButton">Continue to WhatsApp checkout →</button></div>
+  </aside>
+
+  <div class="modal-backdrop hidden" id="productModal"><div class="product-modal"><button class="close-button modal-close" id="closeProductModal">×</button><div id="modalContent"></div></div></div>
+  <script src="config.js"></script><script src="store.js"></script>
+</body></html>
