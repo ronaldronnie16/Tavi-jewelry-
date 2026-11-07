@@ -3,7 +3,28 @@ async function request(path,opts={}){const r=await fetch(`${API}/${path}`,{...op
 function msg(id,text){$(id).textContent=text}
 function formObj(form){return Object.fromEntries(new FormData(form).entries())}
 async function login(e){e.preventDefault();msg("loginMessage","Signing in…");try{const d=await request("login",{method:"POST",body:JSON.stringify({password:$("adminPassword").value})});token=d.token;localStorage.setItem(tokenKey,token);showDashboard()}catch(err){msg("loginMessage",err.message)}}
-async function showDashboard(){try{await loadAll();$("loginPanel").classList.add("hidden");$("dashboard").classList.remove("hidden")}catch(e){token="";localStorage.removeItem(tokenKey);$("loginPanel").classList.remove("hidden");$("dashboard").classList.add("hidden");msg("loginMessage","Session expired. Please sign in again.")}}
+async function showDashboard() {
+  try {
+    await loadAll();
+
+    $("loginPanel").classList.add("hidden");
+    $("dashboard").classList.remove("hidden");
+
+  } catch (e) {
+    console.error("Dashboard loading error:", e);
+
+    token = "";
+    localStorage.removeItem(tokenKey);
+
+    $("loginPanel").classList.remove("hidden");
+    $("dashboard").classList.add("hidden");
+
+    msg(
+      "loginMessage",
+      "Dashboard error: " + (e.message || "Could not load admin data.")
+    );
+  }
+}
 async function loadAll(){const [p,s,settings]=await Promise.all([request("products"),request("stories"),request("settings")]);adminProducts=p.items||[];adminStories=s.items||[];renderAdminProducts();renderAdminStories();const f=$("settingsForm");const merged={...(settings||{})};if(!merged.instagram&&merged.social)merged.instagram=merged.social;Object.entries(merged).forEach(([k,v])=>{if(f.elements[k]&&f.elements[k].type!=="file")f.elements[k].value=v||""})}
 function renderAdminProducts(){$("adminProductList").innerHTML=adminProducts.map(p=>`<div class="admin-list-row">${p.image?`<img src="${p.image}" alt="">`:`<div class="product-placeholder">✧</div>`}<div><b>${esc(p.name)}</b><small>${esc(p.category)} · ${Number(p.price).toLocaleString()} ${p.initialPrice>p.price?" · Discounted":""}</small></div><div class="admin-row-actions"><button onclick="editProduct('${p.id}')">Edit</button><button onclick="deleteProduct('${p.id}')">Delete</button></div></div>`).join("")||"<p>No products yet. Add your first product.</p>"}
 function renderAdminStories(){$("adminStoryList").innerHTML=adminStories.map(s=>`<div class="admin-list-row">${s.image?`<img src="${s.image}" alt="">`:`<div class="product-placeholder">✧</div>`}<div><b>${esc(s.title)}</b><small>${esc(s.label||"Story")} · ${esc((s.body||"").slice(0,100))}</small></div><div class="admin-row-actions"><button onclick="editStory('${s.id}')">Edit</button><button onclick="deleteStory('${s.id}')">Delete</button></div></div>`).join("")||"<p>No stories published yet.</p>"}
