@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10244d">
+  <meta name="theme-color" content="#0e1a33">
   <meta name="description" content="Discover elegant jewellery, cosmetics, handbags and perfumes at Tavi's. Elevate your style. Express your elegance.">
   <title>Tavi's | Jewelleries & Accessories</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -60,7 +60,14 @@
 
     <section class="story-section" id="new-arrivals">
       <div class="section-heading"><div><p class="eyebrow">FRESH FROM TAVI'S</p><h2>Stories & new arrivals</h2></div><p>Discover the latest additions, offers and style inspiration.</p></div>
-      <div class="story-grid" id="storyGrid"><div class="loading">Loading stories…</div></div>
+      <div class="story-stage" id="storyStage" aria-roledescription="carousel" aria-label="Stories and new arrivals">
+        <div class="story-progress" id="storyProgress"></div>
+        <div class="story-slides" id="storySlides"><div class="loading">Loading stories…</div></div>
+        <button class="story-zone story-zone-prev" id="storyPrev" aria-label="Previous story"></button>
+        <button class="story-zone story-zone-next" id="storyNext" aria-label="Next story"></button>
+        <button class="story-arrow story-arrow-prev" id="storyPrevArrow" aria-label="Previous story">‹</button>
+        <button class="story-arrow story-arrow-next" id="storyNextArrow" aria-label="Next story">›</button>
+      </div>
     </section>
 
     <section class="about-section" id="about">
@@ -73,23 +80,17 @@
 
     <section class="contact-section" id="contact">
       <div><p class="eyebrow">WE'D LOVE TO HEAR FROM YOU</p><h2>Let's make it<br><em>personal.</em></h2><p>Questions about a product, an order or a gift? Send us a message and our team will be happy to assist.</p></div>
-      <div class="contact-card"><div><small>WHATSAPP</small><b id="contactPhone">Add your WhatsApp number</b></div><div><small>EMAIL</small><b id="contactEmail">Add your business email</b></div><div><small>LOCATION</small><b id="contactLocation">Add your business location</b></div><a class="button button-gold" id="contactWhatsApp" href="#" target="_blank" rel="noopener">Chat with us on WhatsApp ↗</a></div>
+      <div class="contact-card"><div><small>WHATSAPP</small><b id="contactPhone">Add your WhatsApp number</b></div><div><small>EMAIL</small><b id="contactEmail">Add your business email</b></div><div><small>LOCATION</small><b id="contactLocation">Add your business location</b></div><div class="social-block" id="socialBlock"><small>FOLLOW US</small><div class="social-row" id="socialRow"></div></div><a class="button button-gold" id="contactWhatsApp" href="#" target="_blank" rel="noopener">Chat with us on WhatsApp ↗</a></div>
     </section>
   </main>
 
-  <footer class="footer"><a class="brand brand-footer" href="#"><span class="brand-mark">T</span><span><b>Tavi's</b><small>JEWELLERIES & ACCESSORIES</small></span></a><p>Elevate your style. Express your elegance.</p><div>© <span id="year"></span> Tavi's. All rights reserved.</div>
-  </footer>
-    <!-- 
-  <a class="whatsapp-float" id="floatingWhatsApp" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"></a> -->
-  
-  <a class="wa-float" href="https://wa.me/256708688315?text=Hello%20Tavi%27s%20Jewelry%20%26%20Accessories!%20I%27m%20interested%20in%20your%20products." target="_blank" rel="noopener" aria-label="Chat with Tavi on WhatsApp">
-  
-  <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4.1.2.1.7-.1 1.2z"/>
-  </svg>
-</a>
+  <footer class="footer"><p>Elevate your style. Express your elegance.</p><div>© <span id="year"></span> Tavi's. All rights reserved.</div></footer>
+    <a class="wa-float" id="floatingWhatsApp" href="#" target="_blank" rel="noopener" aria-label="Chat with Tavi's on WhatsApp">
+    <span class="wa-number" id="waNumber">+256 781 115434</span>
+    <span class="wa-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+  </a>
 
-  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <div class="cart-backdrop hidden" id="cartBackdrop"></div>
   <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
     <div class="drawer-head"><div><p class="eyebrow">YOUR SELECTION</p><h3>Shopping bag <span id="drawerCount">(0)</span></h3></div><button id="closeCart" class="close-button" aria-label="Close cart">×</button></div>
     <div class="cart-items" id="cartItems"><p class="cart-empty">Your bag is waiting for something beautiful.</p></div>
